@@ -1,4 +1,4 @@
-r = io.connect "http://localhost:8080/r"
+r = io.connect "http://#{window.location.hostname}:8080/r"
 r.on "update", (value) ->
   console.log value
   $('.r')
