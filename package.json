@@ -1,0 +1,11 @@
+{
+  "name": "cx-leds",
+  "version": "0.0.0",
+  "description": "The LED controller & server for the Common User Experience team @ Dell",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Harding",
+  "license": "MIT"
+}
