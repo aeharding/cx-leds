@@ -17,6 +17,6 @@
   "dependencies": {
     "socket.io-client": "~0.9.16",
     "jquery": "~2.1.1",
-    "aterrien/jQuery-Knob": "~1.2.8"
+    "jquery-knob": "~1.2.8"
   }
 }
