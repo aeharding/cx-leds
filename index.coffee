@@ -8,12 +8,22 @@ app.use express.static __dirname + '/server'
 app.listen 80, ->
   console.log 'Listening on :80'
 
-value = 0
-r = io
-  .of '/r'
+colors = 
+  r: 0
+  g: 0
+  b: 0
+
+io
+  .of '/color'
   .on 'connection', (socket) ->
-    socket.emit 'update', value
-    socket.on 'update', (val) ->
-      if not isNaN val and val >= 0 and val <= 255
-        value = Math.floor val
-        socket.broadcast.emit 'update', value
+    watchForChanges socket, 'r'
+    watchForChanges socket, 'g'
+    watchForChanges socket, 'b'
+
+
+watchForChanges = (socket, component) ->
+  socket.emit component, colors[component]
+  socket.on component, (val) ->
+    if not isNaN val and val >= 0 and val <= 255
+      colors[component] = Math.floor val
+      socket.broadcast.emit component, colors[component]
